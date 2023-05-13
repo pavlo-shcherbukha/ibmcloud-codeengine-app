@@ -91,12 +91,12 @@ class CustomerService {
       logmsg="check existance of cif number"
       this.log(logmsg, label);
       try{
-          if (typeof a_phone === "undefined"){
+          if (typeof a_cif === "undefined"){
               logmsg="check existance of cif:cif is  not defined"
               this.log(logmsg, label);
               throw new apperror.ApplicationError( logmsg );
           }
-          let resultidx = await  this.findarr( this.CustList,"cif", a_phone );
+          let resultidx = await  this.findarr( this.CustList,"cif", a_cif );
           
           if (resultidx < 0 ){
             logmsg=`Customer does not foudn by cif ${a_cif}`

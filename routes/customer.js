@@ -27,9 +27,13 @@ router.post('/', function(req, res, next) {
     //resp.chkresult=true;
     CustSrvc.findbyphone(phone)
     .then(result=>{
+        msg="Return result: " + JSON.stringify(result)
+        log(msg, label);
         return res.status(200).json( result );
     })
     .catch (err=>{
+        msg="Return result: " + JSON.stringify(err.message)
+        log(msg, label);
         return res.status(405).json(  { "message": err.message} );
 
     });
@@ -42,13 +46,18 @@ router.get('/:cif', function(req, res, next) {
 
     let resp={};
     const CustSrvc= new custsrvc.CustomerService('customerbycif')
-    phone=req.params.cif;
+    cif=req.params.cif;
     //resp.chkresult=true;
     CustSrvc.findbycif(cif)
     .then(result=>{
+        msg="Return result: " + JSON.stringify(result)
+        log(msg, label);
         return res.status(200).json( result );
     })
     .catch (err=>{
+        msg="Return result: " + JSON.stringify(err.message)
+        log(msg, label);
+
         return res.status(405).json(  { "message": err.message} );
 
     });
