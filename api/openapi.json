@@ -15,7 +15,7 @@
   },
   "servers": [
     {
-      "url": "https://psh-app1.12985tlgl6hs.eu-gb.codeengine.appdomain.cloud",
+      "url": "https://application-93.12f16xxyvpcw.eu-gb.codeengine.appdomain.cloud",
       "variables": {},
       "description": "code engine"
     }

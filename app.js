@@ -9,6 +9,8 @@ var usersRouter = require('./routes/users');
 var userRouter =require('./routes/user_pin');
 var customerRouter =require('./routes/customer');
 var healthRouter = require('./routes/health');
+var accountRouter =require('./routes/accounts');
+var swaggerRouter =require('./routes/swagger');
 
 var app = express();
 
@@ -26,7 +28,11 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/userpin', userRouter);
 app.use('/customer', customerRouter);
+app.use('/account', accountRouter);
+app.use('/swagger', swaggerRouter);
 app.use('/health', healthRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
