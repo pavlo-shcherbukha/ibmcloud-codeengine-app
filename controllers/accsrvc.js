@@ -106,54 +106,6 @@ class AccountService {
         }  
   
     } // end 
-  
-
-  
-    } // end 
-
-
-    /**
-     *  пошук за cif
-     */
-    async findbycif(a_cif) {
-      let label="CustomerSrvc.findbycif";
-      let logmsg="";
-      let rres={};
-      logmsg="Start"
-      this.log(logmsg, label);
-      logmsg="check existance of cif number"
-      this.log(logmsg, label);
-      try{
-          if (typeof a_cif === "undefined"){
-              logmsg="check existance of cif:cif is  not defined"
-              this.log(logmsg, label);
-              throw new apperror.ApplicationError( logmsg );
-          }
-          let resultidx = await  this.findarr( this.CustList,"cif", a_cif );
-          
-          if (resultidx < 0 ){
-            logmsg=`Customer does not foudn by cif ${a_cif}`
-            this.log(logmsg, label);
-            rres={}  
-            return rres;
-          }
-          logmsg=`Customer found cif ${a_cif}`
-          this.log(logmsg, label);
-          logmsg="Customer: " + JSON.stringify(this.CustList[resultidx])
-          this.log(logmsg, label);
-          rres=this.CustList[resultidx]
-          return rres;
-      } catch (err){
-        logmsg=err.message
-        this.log(logmsg, label);
-        throw new apperror.ApplicationError(err.message);
-      }  
-
-    } // end find by cif
-
-
- 
-
 
 } // end class def
 

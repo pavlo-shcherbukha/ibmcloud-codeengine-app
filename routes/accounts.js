@@ -1,5 +1,5 @@
 var express = require('express');
-var custsrvc = require('../controllers/custsrvc')
+var accsrvc = require('../controllers/accsrvc')
 var apperror = require('../error/appError');
 var router = express.Router();
 
@@ -22,10 +22,8 @@ router.get('/', function(req, res, next) {
     log(msg, label);
 
     let resp={};
-    const CustSrvc= new custsrvc.CustomerService('customerbythone')
-    phone=req.body.phone;
-    //resp.chkresult=true;
-    CustSrvc.findbyphone(phone)
+    const AccSrvc= new accsrvc.AccountService('account')
+    AccSrvc.accountlist()
     .then(result=>{
         msg="Return result: " + JSON.stringify(result)
         log(msg, label);
